@@ -1,3 +1,4 @@
+//Class Display having default and parametrized constructors .
 public class Display {
     static String channel;
     static String serial;
@@ -10,8 +11,8 @@ public class Display {
     {
         this.channel=channel;
         this.serial=serial;
-        System.out.println(channel);
-        System.out.println(serial);
+        System.out.println(this.channel);
+        System.out.println(this.serial);
 	System.out.println("This is parameterised constructor")
     }
 }
