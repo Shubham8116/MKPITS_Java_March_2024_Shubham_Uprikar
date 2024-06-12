@@ -1,3 +1,4 @@
+//demonstration of fetching data from table
 package database_demo;
 
 import java.sql.*;

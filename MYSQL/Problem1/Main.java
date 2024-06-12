@@ -1,4 +1,4 @@
-//program to access database records based on the given ID
+//program to access table records based on the given ID
 package Problem1;
 
 import java.sql.SQLException;
