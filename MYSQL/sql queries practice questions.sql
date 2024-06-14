@@ -1,3 +1,6 @@
+# following sql queries are performed on the sakila database which is the default sample database in mysql.
+#refer to the image provided, for understanding of the database tables .
+
 #**Retrieve all films with a rental duration of more than 5 days:**
 select * from film where rental_duration>5;
 

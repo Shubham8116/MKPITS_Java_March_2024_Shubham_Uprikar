@@ -1,3 +1,6 @@
+# following sql queries are performed on the sakila database which is the default sample database in mysql.
+#refer to the image provided, for understanding of the database tables .
+
 #1. **Retrieve the first 10 characters of the title of each film.**
 select left(title,10) as first10 from film;
 
