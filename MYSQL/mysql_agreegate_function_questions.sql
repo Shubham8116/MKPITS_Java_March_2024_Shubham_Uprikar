@@ -1,3 +1,6 @@
+# following sql queries are performed on the sakila database which is the default sample database in mysql.
+#refer to the image provided, for understanding of the database tables .
+
 ### Problem 1:
 #**Find the total number of films in the database.**
 select count(film_id) from film;
