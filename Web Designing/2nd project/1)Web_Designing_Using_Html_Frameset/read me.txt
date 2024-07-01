@@ -1,0 +1,5 @@
+This is a demo website for Maruti Suzuki Company.
+
+In this web designing html frameset,images,tables and other tags are used.
+
+To run the website - run index.html file in the browser.
