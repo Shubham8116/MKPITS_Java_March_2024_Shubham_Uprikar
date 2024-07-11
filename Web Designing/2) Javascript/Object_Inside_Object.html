@@ -1,0 +1,44 @@
+<html>
+    <body>
+        <h1>
+            Printing exchange rates 
+        </h1>
+        <script>
+            
+const  exchangerates={
+INR:{
+    INR:1,USD:0.012,POUND:0.0093,YEN:1.94
+
+},
+USD:{
+    USD:1,INR:83.4,POUND:0.78,YEN:161.73
+
+},
+POUND:{
+    POUND:1,INR:107.46,USD:1.29,YEN:208.02
+
+},
+YEN:{
+    YEN:1,USD:0.0062,POUND:0.0048,INR:0.52
+
+}
+
+}
+    for(fr in exchangerates)
+    {
+   
+   document.write(fr);
+    for(t in exchangerates[fr])
+    {
+    document.write(exchangerates[fr][t]);
+    document.write("<br>")
+    }
+    document.write("<br><br>");
+
+    }
+
+
+        </script>
+    </body>
+</html>
+

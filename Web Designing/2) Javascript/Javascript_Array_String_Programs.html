@@ -1,0 +1,132 @@
+<!-- Demonstrating different javascript objects - Array, String -->
+<html>
+    <head>
+        <script src="Myscript.js">
+
+        </script>
+    </head>
+    <body>
+        <h1 style="color: black;text-align: center;">
+            JavaScript Programs 
+        </h1>
+<ul>
+        <li><button type="button" onclick='getSquare(10)' style="background-color: chocolate; color: black;">Show square of a number</button></li><br>
+        <li><button type="button" onclick='checkObject()' style="background-color: chocolate; color: black;">Display object data by Object.values() method</button></li><br>
+        <li><button type="button" onclick='demoobject1()' style="background-color: chocolate; color: black;">Show object values by using new object</button></li><br>
+        <li><button type="button" onclick=demoobject() style="background-color: chocolate; color: black;">Show object values by using object literal</button></li>
+    </ul>
+
+    <script>
+    function demoobject2(name,marks,city)
+{
+this.name=name;
+this.marks=marks;
+this.city=city;
+}
+student=new demoobject2('Shubham',80,'Nagpur');
+document.write("<h3>"+"Calling object data by constructor : "+"</h3>");
+document.write("<h3> The object details are : "+" "+student.name+" "+student.marks+" "+student.city+" "+"</h1>");
+</script>
+<script>  
+document.write("<h3>"+"The example of defining method in object is given below."+"</h3>")
+    function student(id,name,salary){  
+    this.id=id;  
+    this.name=name;  
+    this.salary=salary;  
+      
+    this.changeSalary=changeSalary;  
+    function changeSalary(otherSalary){  
+    this.salary=otherSalary;  
+    }  
+    }  
+    a=new student(100,"Shubham",30000);  
+    document.write(a.id+" "+a.name+" "+a.salary);  
+    a.changeSalary(45000);  
+    document.write("<br>"+a.id+" "+a.name+" "+a.salary);  
+    </script>  
+    <script>
+        document.write("<br><br>"+"Displaying array elements by array literal<br>");
+        var array=[1,3,4,5,6,6,7,8,9];
+        for(i=0;i<array.length;i++)
+    {
+        document.write(array[i]+"<br>")
+    }
+    </script>
+    <script>
+        document.write("<br><br>"+"Displaying array elements by doing new array <br>");
+        var emp = new Array();  
+emp[0] = "Arun";  
+emp[1] = "Varun";  
+emp[3] = "John";  
+  
+for (i=0;i<emp.length;i++){  
+document.write(emp[i] + "<br>");  
+}  
+    </script>
+
+    <script>
+document.write("<br><br>"+"Displaying array elements by array constructor<br>")
+var names=new Array('shubham','sanved','akshay');
+for(i=0;i<names.length;i++)
+{
+    document.write(names[i] + "<br>");
+}
+        </script>
+        <script>
+            document.write("<br><br>"+"Displaying array elements in sorted order<br>")
+
+
+            var names=new Array('shubham','sanved','akshay');
+           
+           document.write("<br><br>"+"Displaying array elements before sorting<br>")
+           document.write(names);
+           var result=names.sort();
+           document.write("<br><br>"+"Displaying array elements in sorted order<br>")
+
+           document.write(result);
+
+        </script>
+        <script>
+         document.write("<br><br>"+"Displaying array elements<br>")
+
+            var names=new Array('shubham','sanved','akshay');
+            document.write(names);
+            document.write("<br><br>"+"Displaying array elements in reverse order<br>")
+            document.write(names.reverse());
+        </script>
+
+        <script> 
+         document.write("<br><br>"+"Displaying array elements<br>")
+
+        
+            var arr1=["C","C++","Python"];  
+            var arr2=["Java","JavaScript","Android"];  
+            document.write(arr1+"<br>");
+        document.write(arr2);
+            var result=arr1.concat(arr2);  
+            document.write("<br><br>"+"Displaying array elements after concatenation<br>")
+
+            document.writeln(result);  
+            </script>  
+            <script>
+                document.write("<br><br>Displaying Strings in javascript");
+                document.write("<br><br><br>");
+
+                var sname="Shubham is good";
+                
+                document.write("<br><br>"+sname);
+                document.write("<br><br>"+sname.charAt(1));
+                var sname=new String("                Hello Shubham              ");
+                document.write("<br><br>"+sname+"<br><br>");
+
+                
+                document.write("<br>"+sname.toLowerCase());
+                document.write("<br>"+sname.trim());
+                var b=new String('Shbham is a');
+                document.write("<br>");
+                document.write(b.substring(0,3));
+                </script>
+
+            
+    </body>
+</html>

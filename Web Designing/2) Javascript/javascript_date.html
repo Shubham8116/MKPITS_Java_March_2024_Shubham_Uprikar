@@ -1,0 +1,46 @@
+        <!-- Displaying time in javascript -->
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="refresh" content="1">
+            <title>Document</title>
+        </head>
+
+
+    <body>
+        <div id="this">
+            
+        </div>
+        <br>
+        <div id="this1">
+            
+        </div>
+        
+        <script>
+        var today=new Date();
+        var h=today.getHours();
+        var m=today.getMinutes();
+        var s=today.getSeconds();
+        document.getElementById("this").innerHTML=today;
+        document.getElementById("this1").innerHTML=h+":"+m+":"+s;
+        </script>
+        <br>
+        <br>
+<script>  
+    var hours=new Date();      
+
+    document.writeln("Current Hour : "+hours.getHours()+"<br>");  
+    hours.setHours(8);  
+    document.writeln("Updated Hour : "+hours.getHours());  
+    </script> 
+<br>
+<br>
+    <script>  
+        var date=new Date();  
+        document.writeln(date.toJSON());  
+    </script>  
+    </body>
+</html>
