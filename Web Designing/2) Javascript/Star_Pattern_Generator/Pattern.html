@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patterns</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
+    <script src="./pattern.js" ></script>
+    <style>
+        body {
+            font-family: 'Comfortaa', sans-serif;
+            background: linear-gradient(90deg, #030303 5.79%, #00262E 86.41%);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            position: relative;
+            overflow: hidden;
+        }
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, #00ffff 0%, transparent 10%),
+                radial-gradient(circle at 80% 40%, #ff00ff 0%, transparent 10%),
+                radial-gradient(circle at 40% 60%, #ffff00 0%, transparent 10%),
+                radial-gradient(circle at 70% 80%, #00ff00 0%, transparent 10%);
+            background-size: 300% 300%;
+            animation: neonPattern 15s ease infinite;
+            opacity: 0.3;
+            z-index: -1;
+        }
+        @keyframes neonPattern {
+            0%, 100% { background-position: 0% 0%; }
+            25% { background-position: 100% 0%; }
+            50% { background-position: 100% 100%; }
+            75% { background-position: 0% 100%; }
+        } 
+         body::before {
+            content: '★';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            right: -50%;
+            bottom: -50%;
+            width: 3px;
+            height: 3px;
+            background: transparent;
+            box-shadow: 1976px 1594px #fff, 1317px 1863px #fff, 1686px 1299px #fff,
+                        713px 1141px #fff, 1957px 767px #fff, 1706px 1789px #fff,
+                        1453px 478px #fff, 450px 426px #fff, 1523px 1246px #fff,
+                        1127px 779px #fff, 1985px 402px #fff, 1327px 1597px #fff;
+            animation: twinkle 5s infinite;
+            z-index: -1;
+        }
+        @keyframes twinkle {
+            0% { opacity: 0.8; }
+            50% { opacity: 0.4; }
+            100% { opacity: 0.8; }
+        }
+        .heading {
+            text-align: center;
+            margin-top: 40px;
+        }
+        .container {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .card {
+            font-family: 'Comfortaa', sans-serif;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 20px;
+            width: 240px;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(6.4px);
+            position: relative;
+        }
+        .content {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        button {
+            padding: 10px;
+            border: none;
+            background: #6200ea;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #3700b3;
+        }
+        .pattern-title {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 18px;
+            font-weight: bold;
+            background: linear-gradient(90deg, #ff00ff, #00ffff, #ff00ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: neon 2s linear infinite;
+        }
+        @keyframes neon {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="heading">
+        <h1>Patterns</h1>
+        <h2> Star patterns using JS</h2>
+    </div>
+    <div class="container">
+        <div class="card">
+            <h1 class="pattern-title">Star Pattern</h1>
+            <div class="content" id="card1"></div>
+            <button onclick="generateRightAngledTrianglePattern('card1','audio1')" title="Right Angled Triangle Pattern">Generate Pattern</button>
+        </div>
+        <div class="card">
+            <h1 class="pattern-title">Star Pattern</h1>
+            <div class="content" id="card2"></div>
+            <button onclick="generateInvertedTrianglePattern('card2')">Generate Pattern</button>
+        </div>
+        <div class="card">
+            <h1 class="pattern-title">Star Pattern</h1>
+            <div class="content" id="card3"></div>
+            <button onclick="generateDiamondPattern('card3')">Generate Pattern</button>
+        </div>
+        <div class="card">
+            <h1 class="pattern-title">Star Pattern</h1>
+            <div class="content" id="card4"></div>
+            <button onclick="generateHollowSquarePattern('card4')">Generate Pattern</button>
+        </div>
+        
+    </div>
+
+
+
+    <audio id="audio1" src="./sounds/rightAngledTriangleStarPattern.mp3"></audio>
+    <!-- audio file for card 1 -->
+
+
+
+    <script>
+        function generateRightAngledTrianglePattern(cardId) {
+            let pattern = '';
+            for (let i = 1; i <= 5; i++) {
+                for (let j = 1; j <= i; j++) {
+                    pattern += '* ';
+                }
+                pattern += '<br>';
+            }
+            document.getElementById(cardId).innerHTML = pattern;
+
+            document.getElementById('audio1').play();                   
+            // Plays the audio on clicking the button generate pattern
+        }
+
+        function generateInvertedTrianglePattern(cardId) {
+            let pattern = '';
+            for (let i = 5; i >= 1; i--) {
+                for (let j = 1; j <= i; j++) {
+                    pattern += '* ';
+                }
+                pattern += '<br>';
+            }
+            document.getElementById(cardId).innerHTML = pattern;
+        }
+
+        function generateDiamondPattern(cardId) {
+            let pattern = '';
+            for (let i = 1; i <= 5; i++) {
+                for (let j = 1; j <= 5 - i; j++) {
+                    pattern += '&nbsp;&nbsp;';
+                }
+                for (let k = 1; k <= 2 * i - 1; k++) {
+                    pattern += '*';
+                }
+                pattern += '<br>';
+            }
+            for (let i = 4; i >= 1; i--) {
+                for (let j = 1; j <= 5 - i; j++) {
+                    pattern += '&nbsp;&nbsp;';
+                }
+                for (let k = 1; k <= 2 * i - 1; k++) {
+                    pattern += '*';
+                }
+                pattern += '<br>';
+            }
+            document.getElementById(cardId).innerHTML = pattern;
+        }
+
+        function generateHollowSquarePattern(cardId) {
+            let pattern = '';
+            for (let i = 1; i <= 5; i++) {
+                for (let j = 1; j <= 5; j++) {
+                    if (i === 1 || i === 5 || j === 1 || j === 5) {
+                        pattern += '* ';
+                    } else {
+                        pattern += '&nbsp;&nbsp;&nbsp;';
+                    }
+                }
+                pattern += '<br>';
+            }
+            document.getElementById(cardId).innerHTML = pattern;
+        }
+
+        function generatePyramidPattern(cardId) {
+            let pattern = '';
+            for (let i = 1; i <= 5; i++) {
+                for (let j = 1; j <= 5 - i; j++) {
+                    pattern += '&nbsp;&nbsp;';
+                }
+                for (let k = 1; k <= i; k++) {
+                    pattern += '* ';
+                }
+                pattern += '<br>';
+            }
+            document.getElementById(cardId).innerHTML = pattern;
+        }
+    </script>
+</body>
+</html>

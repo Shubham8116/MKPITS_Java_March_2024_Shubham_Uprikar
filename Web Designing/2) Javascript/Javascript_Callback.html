@@ -1,0 +1,28 @@
+<!-- Demonstrating Callback in Javascript -->
+<html>  
+<head>  
+<style>  
+</style>  
+</head>  
+<body>  
+<h1> Hello</h1>  
+<h3> The getData() function is called its arguments and the callback is executed after the completion of getData() function. </h3>  
+<script>  
+// Creating function 
+function getData(x, y, callback){  
+    
+document.write(" The multiplication of the numbers " + x + " and " + y + " is: " + (x*y) + "<br><br>" );  
+callback(); // It will call showdata function
+
+}  
+// Creating function 
+function showData(){  
+document.write(' This is the showData() method execute after the completion of getData() method.');  
+}  
+  
+  
+</script>  
+<input type="button" value="show" onclick="getData(20, 30, showData)">
+</body>  
+  
+</html>  

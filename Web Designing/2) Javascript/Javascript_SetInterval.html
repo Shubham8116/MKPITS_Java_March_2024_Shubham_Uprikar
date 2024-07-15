@@ -1,0 +1,26 @@
+<html>  
+<head>  
+<title> setInterval() method </title>  
+</head>  
+<body onload="fun()">  
+<h1> Welcome </h1>  
+<h3> This is an example of using the setInterval() method </h3> 
+<h3>Displaying Clock</h3> 
+<h3 id="t"></h3>
+  
+<script>  
+  
+ 
+  
+setInterval(fun, 1000);  
+  
+function fun() {  
+var today= new Date;
+document.getElementById("t").innerHTML=today.getHours()+":"+today.getMinutes()+":"+today.getSeconds();
+
+}
+</script>  
+  
+</body>  
+  
+</html>  
