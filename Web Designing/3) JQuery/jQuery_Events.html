@@ -1,0 +1,61 @@
+<!-- jQuery demonstration of events  -->
+<html>
+    <body>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">  
+ </script> 
+        <script>
+            $(document).ready(function(){
+
+            $("#hide").click(function()
+        {
+            $('h1').hide(2000);
+        })
+
+        $("#show").click(function()
+        {
+            $('h1').fadeIn(3000);
+        })
+
+        $("#show").dblclick(function()
+        {
+            alert("Double click event occured");
+
+        })
+
+        $('h3').mouseenter(function()
+        {
+
+       alert("Mouse entered in Hello area");
+      })
+
+        $("#slide").click(function(){
+        $("#4").slideToggle();
+      })
+
+      $("#animate").click(function(){
+      $("#5").animate({left: '590px'},"slow");
+}) 
+      $("#stop").click(function(){
+      $("#5").stop();
+}) 
+
+})
+        </script>
+        <center>
+        <h3>Hello</h3>
+        <h1>Click on the button to hide this text</h1>
+        <h1 id="1">Content 1</h1>
+        <h1 id="2">Content 2</h1>
+        <h1 id="3">Content 3</h1>
+        <h2 id="4">Sliding Text</h2>
+        
+
+        <input type="button" id="hide" value="Hide Me">
+        <input type="button" id="show" value="Show Me">
+        <input type="button" id="slide" value="Slide Me">
+        <input type="button" id="animate" value="Animation">
+        <input type="button" id="stop" value="Stop Animation">
+        </center>
+        <h2 id="5" style="position: relative;">Animation Text</h2>
+    </body>
+</html>

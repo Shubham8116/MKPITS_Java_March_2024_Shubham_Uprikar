@@ -1,0 +1,155 @@
+<!-- This webpage shows the current weather data according to city given -->
+ <!-- In this openweather api is used to fetch the data -->
+  <!-- Data from api is fetched through json object -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(90deg, #030303 5.79%, #00262E 86.41%);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            margin-top: 3%;  
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 300px;
+        }
+
+        input[type="button"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background: #007bff;
+            color: #fff;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        input[type="button"]:hover {
+            background: #e71562;
+        }
+
+        #coord, #temp {
+            margin-top: 20px;  
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+        }
+
+        #icon img {
+            width: 100px;
+            height: 100px;
+        }
+
+        span {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+
+        .center {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <input type="text" id="cityname" placeholder="Enter city" >
+        <input type="button" id="display" value="Search" onclick="cityTemp()">
+        <div id="icon"></div>
+        <div id="city"></div>    
+    </header>
+
+    <div id="coord">
+        <span id="lon"></span>
+        <span id="lat"></span>
+    </div>
+
+    <div id="temp">
+        <span id="reading"></span>
+        <span id="pressure"></span>
+        <span id="Humidity"></span>
+    </div>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">  
+ </script> 
+
+    <script>
+         $(document).ready(function(){
+
+$("#icon").hide();
+$("#city").hide();
+$("#coord").hide();
+$("#temp").hide();
+
+
+$("#display").click(function()
+        {
+            $("#icon").fadeIn(3000);
+            $("#city").fadeIn(3000);
+            $("#coord").fadeIn(3000);
+            $("#temp").fadeIn(3000);
+        })
+
+        
+
+})
+    </script>
+
+    <script>
+        function cityTemp() {
+            let city = document.getElementById("cityname").value;
+            const apikey = "d54a60dd3da0c8fc01202b550498deff";
+            const url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apikey + "&units=metric";
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("city").innerHTML = "<h2 class='center'>" + city + "</h2>";
+                    const iconUrl = "http://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png";
+                    document.getElementById("icon").innerHTML = "<img src='" + iconUrl + "' alt='Weather icon'>";
+
+                    document.getElementById("lon").innerHTML = "Longitude: " + data.coord.lon;
+                    document.getElementById("lat").innerHTML = "Latitude: " + data.coord.lat;
+                    document.getElementById("reading").innerHTML = "Temperature: " + data.main.temp + "°C";
+                    document.getElementById("pressure").innerHTML = "Pressure: " + data.main.pressure + " hPa";
+                    document.getElementById("Humidity").innerHTML = "Humidity: " + data.main.humidity + "%";
+                })
+
+                
+                .catch(error => {
+                    document.getElementById("city").innerHTML = "<p class='center'>City not found. Please try again.</p>";
+                });
+        }
+    </script>
+</body>
+</html>
