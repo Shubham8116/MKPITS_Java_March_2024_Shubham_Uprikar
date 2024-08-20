@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 
+    xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:p="http://www.springframework.org/schema/p"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">  
+ 
+ <!-- injecting data through 3 parameters constructor --> 
+<bean id="s" class="com.test.Student">  
+<constructor-arg value="100" type="int"></constructor-arg>
+  <constructor-arg value="sneha" type="String"></constructor-arg>
+  <constructor-arg>
+  <list>
+  <value>Chemistry</value>
+  <value>Physics</value>
+  <value>Math</value>
+  </list>
+  </constructor-arg>
+  <constructor-arg>
+  <map>
+  <entry key="ssc" value="80%"></entry>
+  <entry key="10th" value="60%"></entry>
+  <entry key="12th" value="90%"></entry>
+  </map>
+  </constructor-arg>
+  <constructor-arg>
+  <value>"neha","pooja","sneha","alia"</value>
+  </constructor-arg>
+</bean>
+<!-- injecting data through 1 parameter constructor -->
+  <bean id="s1" class="com.test.Student">  
+<constructor-arg value="200" type="int"></constructor-arg>
+</bean>
+<!-- injecting data through 1 parameter constructor -->
+  <bean id="s2" class="com.test.Student">  
+<constructor-arg value="pooja"></constructor-arg>
+</bean>
+  
+</beans> 

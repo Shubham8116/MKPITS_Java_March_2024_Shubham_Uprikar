@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 
+    xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:p="http://www.springframework.org/schema/p"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">  
+ 
+ <!-- injecting data through 2 parameters constructor --> 
+<bean id="s" class="com.test.Student">  
+<constructor-arg value="100" type="int"></constructor-arg>
+  <constructor-arg value="sneha" type="String"></constructor-arg>
+</bean>
+<!-- injecting data through 1 parameter constructor -->
+  <bean id="s1" class="com.test.Student">  
+<constructor-arg value="200" type="int"></constructor-arg>
+</bean>
+<!-- injecting data through 1 parameter constructor -->
+  <bean id="s2" class="com.test.Student">  
+<constructor-arg value="pooja"></constructor-arg>
+</bean>
+
+<!-- injecting data to Location Bean -->
+<bean id="s5" class="com.test.Location">  
+<constructor-arg value="441207" type="int"></constructor-arg>
+<constructor-arg value="31" type="int"></constructor-arg>
+</bean>
+
+
+<!-- injecting data to Address Bean -->
+<bean id="s3" class="com.test.Address">  
+<constructor-arg value="New York"></constructor-arg>
+<constructor-arg value="Maharashtra"></constructor-arg>
+<constructor-arg value="Nepal"></constructor-arg>
+<constructor-arg>
+<ref bean="s5"/>
+</constructor-arg>
+</bean>
+
+
+ <!-- injecting data through 3 parameters constructor -->
+  <bean id="s4" class="com.test.Student">  
+<constructor-arg value="katrina"></constructor-arg>
+<constructor-arg value="100"></constructor-arg>
+<constructor-arg>
+<ref bean="s3"/>
+</constructor-arg>
+
+</bean> 
+  
+</beans> 
