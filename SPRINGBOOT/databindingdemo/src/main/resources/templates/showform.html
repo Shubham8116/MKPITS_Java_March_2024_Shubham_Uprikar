@@ -1,0 +1,21 @@
+<!--html page showform to enter student data and forward to processform mapping in controller-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<form th:action="@{/processform}" th:object="${student}" method="post">
+  <label>Enter Your First Name</label>
+<!--  <input type="text" th:field="${student.firstname}"><br>-->
+  <input type="text" th:field="*{firstname}"><br>
+  <label>Enter Your Last Name</label>
+  <input type="text" th:field="${student.lastname}"><br>
+
+  <input type="submit" value="Ok">
+</form>
+
+</body>
+</html>
