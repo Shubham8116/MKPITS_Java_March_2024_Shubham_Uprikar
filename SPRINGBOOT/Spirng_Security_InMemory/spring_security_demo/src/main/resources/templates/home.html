@@ -1,0 +1,31 @@
+<!--Home page , which will displayed after login page-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+</head>
+<body>
+<!--To display user name and his role-->
+User ID : <span sec:authentication="principal.username"></span>
+Roles : <span sec:authentication="principal.authorities"></span>
+<!--To display role based content-->
+<div sec:authorize="hasRole('Employee')">
+
+<h1><a th:href="@{/employee}">Employee</a></h1>
+    <h1><a th:href="@{/manager}">Manager</a></h1> <!-- displaying this option to check customized access denied page-->
+  <h1><a th:href="@{/admin}">Admin</a></h1> <!--  displaying this option to check customized access denied page-->
+</div>
+<div sec:authorize="hasRole('Manager')">
+<h1><a th:href="@{/manager}">Manager</a></h1>
+</div>
+<div sec:authorize="hasRole('Admin')">
+<h1><a th:href="@{/admin}">Admin</a></h1>
+</div>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" class="logout-message" value="Logout">
+
+</form>
+</body>
+</html>
