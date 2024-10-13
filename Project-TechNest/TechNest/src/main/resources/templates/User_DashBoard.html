@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="/css/User_Dashboard.css">
+    <script src="/css/User_Dashboard_Script.js"> </script>
+
+</head>
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+    <ul>
+        <li><a href="/" class="active">Home</a></li>
+        <li><a href="#" onclick="showSection('my-orders')">My Orders</a></li>
+        <li><a href="#" onclick="showSection('personal-info')">Personal Information</a></li>
+        <li><a href="#" onclick="showSection('deactivate-account')">Deactivate Account</a></li>
+        <li><a th:href="@{/logout}">Logout</a></li>
+    </ul>
+</div>
+
+<!-- Main content -->
+<div class="main-content">
+
+    <!-- My Orders Section -->
+    <div id="my-orders" class="content-section" style="display: none;">
+        <h2 class="section-title">My Orders</h2>
+        <p>Here you can see all your orders.</p>
+
+    </div>
+
+    <!-- Personal Information Section -->
+    <div id="personal-info" class="content-section" style="display: none;">
+        <h2 class="section-title">Personal Information</h2>
+        <form class="info-form">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" value="John Doe">
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" value="john@example.com">
+
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" value="+123456789">
+
+            <button type="submit">Update Information</button>
+        </form>
+    </div>
+
+
+
+    <!-- Deactivate Account Section -->
+    <div id="deactivate-account" class="content-section" style="display: none;">
+        <h2 class="section-title">Deactivate Account</h2>
+        <p>Click the button below to deactivate your account. You can reactivate it later.</p>
+        <button onclick="alert('Account Deactivated')">Deactivate Account</button>
+    </div>
+
+</div>
+
+
+
+</body>
+</html>

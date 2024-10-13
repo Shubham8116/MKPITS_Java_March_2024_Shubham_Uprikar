@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Users Information</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+        }
+        .table th, .table td {
+            color: #fff;
+        }
+        .pagination a {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Users Information</h1>
+        <table class="table table-dark table-striped mt-3">
+            <thead>
+                <tr>
+                    <th>Serial No.</th>
+                    <th>Name</th>
+                    <th>Username</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="users, iterStat : ${usersPage.content}">
+                    <td th:text="${iterStat.index + 1}"></td>
+                    <td th:text="${users.name}"></td>
+                    <td th:text="${users.email}"></td>
+                    <td>
+                        <a th:href="@{/admin/users/view/{id}(id=${users.id})}" class="btn btn-info btn-sm">View</a>
+                        <a th:href="@{/admin/users/update/{id}(id=${users.id})}" class="btn btn-warning btn-sm">Update</a>
+                        <a th:href="@{/admin/users/delete/{id}(id=${users.id})}" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <nav>
+            <ul class="pagination justify-content-center">
+                <li class="page-item" th:classappend="${usersPage.hasPrevious()} ? '' : 'disabled'">
+                    <a class="page-link" th:href="@{/admin/users(page=${usersPage.number - 1})}">Previous</a>
+                </li>
+                <li class="page-item" th:each="i : ${#numbers.sequence(0, usersPage.totalPages - 1)}" th:classappend="${i == usersPage.number} ? 'active'">
+                    <a class="page-link" th:href="@{/admin/users(page=${i})}" th:text="${i + 1}"></a>
+                </li>
+                <li class="page-item" th:classappend="${usersPage.hasNext()} ? '' : 'disabled'">
+                    <a class="page-link" th:href="@{/admin/users(page=${usersPage.number + 1})}">Next</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</body>
+</html>
